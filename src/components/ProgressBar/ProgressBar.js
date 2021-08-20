@@ -25,11 +25,15 @@ const ProgressBar = ({ value, size }) => {
     }
   }
 
-  return <Container>
+  return <Container
+          style={{
+            '--padding': style[size].padding + 'px',
+          }}>
           <BarWrapper>
-            <Bar style={
-              'width'=(370 / value) + '%'
-            }>
+            <Bar style={{
+              '--width': value + '%',
+              '--height': style[size].height + 'px'
+            }}>
               {value}
             </Bar>
           </BarWrapper>
@@ -41,16 +45,18 @@ const Container = styled.div`
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   border-radius: 8px;
-  padding: 4px;
+  padding: var(--padding);
 `;
 
 const BarWrapper = styled.div`
   width: 370px;
-  `;
+`;
   
 const Bar = styled.div`
   background-color: ${COLORS.primary};
-  border-radius: 8px;
+  width: var(--width);
+  height: var(--height);
+  border-radius: 4px 0 0 4px;
 `;
 
 export default ProgressBar;
