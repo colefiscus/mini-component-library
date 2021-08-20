@@ -9,10 +9,32 @@ const Select = ({ label, value, onChange, children }) => {
   const displayedValue = getDisplayedValue(value, children);
 
   return (
-    <select value={value} onChange={onChange}>
-      {children}
-    </select>
+    <Wrapper>
+      <SelectElement value={value} onChange={onChange}>
+        {children}
+      </SelectElement>
+      <Chevron id="chevron-down"></Chevron>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  position: relative;
+  width: fit-content;
+`;
+
+const SelectElement = styled.select`
+  background-color: ${COLORS.transparentGray15};
+  color: ${COLORS.gray700};
+  padding: 16px 12px;
+  border-radius: 8px;
+  width: fit-content;
+`;
+
+const Chevron = styled(Icon)`
+  position: absolute;
+  right: 0px;
+  top: 15px;
+`;
 
 export default Select;
