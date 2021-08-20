@@ -7,11 +7,11 @@ import VisuallyHidden from '../VisuallyHidden';
 
 const ProgressBar = ({ value, size }) => {
   return <Container>
-          <ProgressElement
+          <BarWrapper
             value={value}
             max={100}>
               {value}
-          </ProgressElement>
+          </BarWrapper>
         </Container>
 };
 
@@ -21,8 +21,12 @@ const Container = styled.div`
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
 `;
 
-const ProgressElement = styled.progress`
+const BarWrapper = styled.div`
   width: 370px;
+`;
+
+const Bar = styled.div`
+  
 `;
 
 export default ProgressBar;
