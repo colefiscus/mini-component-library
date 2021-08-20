@@ -58,7 +58,7 @@ const Bar = styled.div`
 `;
 
 const BarWrapper = styled.div`
-  border-radius: var(--radius);
+  border-radius: 4px;
   overflow: hidden;
 `;
 
@@ -66,7 +66,6 @@ const Wrapper = styled.div`
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   border-radius: var(--radius);
-  overflow: hidden;
   padding: var(--padding);
 `;
 
