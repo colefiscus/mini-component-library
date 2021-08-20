@@ -28,6 +28,7 @@ const ProgressBar = ({ value, size }) => {
   return <Container
           style={{
             '--padding': style[size].padding + 'px',
+            '--radius': style[size].radius + 'px',
           }}>
           <BarWrapper>
             <VisuallyHidden>{value}</VisuallyHidden>
@@ -41,10 +42,9 @@ const ProgressBar = ({ value, size }) => {
 };
 
 const Container = styled.div`
-  width: 370px;
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
-  border-radius: 8px;
+  border-radius: var(--radius);
   padding: var(--padding);
 `;
 
