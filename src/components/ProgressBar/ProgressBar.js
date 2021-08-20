@@ -30,11 +30,11 @@ const ProgressBar = ({ value, size }) => {
             '--padding': style[size].padding + 'px',
           }}>
           <BarWrapper>
+            <VisuallyHidden>{value}</VisuallyHidden>
             <Bar style={{
               '--width': value + '%',
               '--height': style[size].height + 'px'
             }}>
-              {value}
             </Bar>
           </BarWrapper>
         </Container>
@@ -49,7 +49,8 @@ const Container = styled.div`
 `;
 
 const BarWrapper = styled.div`
-  width: 370px;
+  border-radius: 4px;
+  overflow: hidden;
 `;
   
 const Bar = styled.div`
