@@ -6,14 +6,30 @@ import { COLORS } from '../../constants';
 import Icon from '../Icon';
 import VisuallyHidden from '../VisuallyHidden';
 
+const STYLES = {
+  small: {
+    size: 16,
+    fontSize: (14/16),
+    borderThickness: 1,
+  },
+  large: {
+    size: 24,
+    fontSize: (18 / 16),
+    borderThickness: 3,
+  }
+}
+
 const IconInput = ({label,icon,width = 250,size,placeholder}) => {
+
+  const style = STYLES[size]
 
   return <Wrapper>
           <VisuallyHidden>{label}</VisuallyHidden>
-          <IconWrapper>
-            <Icon id="search" strokeWidth={1} size={16} />
+          <IconWrapper style={{ "--height": style.size + "px", "--width": style.size + "px" }}>
+            <Icon id={icon} strokeWidth={1} size={style.size} />
           </IconWrapper>
-          <TextInput placeholder={placeholder} />
+          <TextInput placeholder={placeholder} style={{ "--width": width + "px",
+            "--fontSize": style.fontSize + "rem", "--borderThickness": style.borderThickness + "px" }} />
         </Wrapper>;
 };
 
@@ -30,16 +46,17 @@ const IconWrapper = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  height: 16px;
-  width: 16px;
+  height: var(--height);
+  width: var(--width);
   margin: auto;
 `;
 
 const TextInput = styled.input`
-  padding-left: 24px;
-  height: ${24 / 16}rem;
+  padding-left: 36px;
+  font-size: var(--fontSize);
+  width: var(--width);
   border: none;
-  border-bottom: 1px solid ${COLORS.black};
+  border-bottom: var(--borderThickness) solid ${COLORS.black};
   color: inherit;
   font-weight: 700;
   outline-offset: 2px;
